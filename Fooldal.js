@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Button, View, Text, SafeAreaView, } from 'react-native';
+
 
 export default class Fooldal extends Component {
   constructor(props) {
     super(props);
-    this.state = {text: ''};
+      this.state = {
+        isLoading:true,
+        isCollapsed:true,
+        dataSource:[],
+        megnyomva:[]
+        
+      };
   }
 
-  render() {
-    return (
-      <Text style={{fontSize:20, textAlign:'center', paddingTop:15}}>
-        Főoldal
-      </Text>
-    );
-  }
+render() {  
+  return (
+      <Text>Főoldal</Text>
+   // <SafeAreaView style={{ flex: 1 }}>
+    //<View>
+     // <View>
+      //  <Button
+       //   onPress={() => navigation.navigate('Kiegeszitok')}
+       //   title="Kiegeszitok"
+       // />
+     // </View>
+   // </View>
+ // </SafeAreaView>
+);
+}
 }

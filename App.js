@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Button, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Fooldal from './Fooldal';
 import Mell from './Mell';
 import Bicepsz from './Bicepsz';
@@ -12,10 +13,12 @@ import HasTorzs from './HasTorzs';
 import Vadli from './Vadli';
 import CombFar from './CombFar';
 import Alkar from './Alkar';
+import Megjegyzesek from './Megjegyzesek';
+import Kiegeszitok from './Kiegeszitok';
 
 function Fooldallap({ navigation }) {
   return (
-    <Fooldal/>
+    <Fooldal navigacio={navigation}/>
   );
 }
 
@@ -73,13 +76,42 @@ function Alkarworkout({ navigation }) {
   );
 }
 
-const Drawer = createDrawerNavigator();
 
-export default function App() {
+function Megjegyzeseklap({ navigation }) {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Főoldal" component={Fooldallap} />
+    <Megjegyzesek/>
+  );
+}
+
+
+
+
+const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
+
+
+
+function Root({ navigation }) {
+  return (
+
+<Drawer.Navigator initialRouteName="Home">
+  <Drawer.Screen name="Főoldal" component={Fooldallap}
+  options={{
+    headerRight: () => (
+      <View style={{}}>
+  
+        <Button
+        onPress={() => navigation.navigate('Kiegeszitok')}
+        title="Kiegeszitok"
+        color="blue"
+        
+      />
+      </View>
+        
+  
+      
+    )
+  }}/>
         <Drawer.Screen name="Mell" component={Mellworkout} />
         <Drawer.Screen name="Bicepsz" component={Bicepszworkout} />
         <Drawer.Screen name="Tricepsz" component={Tricepszworkout} />
@@ -89,7 +121,26 @@ export default function App() {
         <Drawer.Screen name="Vádli" component={Vadliworkout} />
         <Drawer.Screen name="Comb/Far izom" component={CombFarworkout} />
         <Drawer.Screen name="Alkar" component={Alkarworkout} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+        <Drawer.Screen name="Megjegyzések" component={Megjegyzeseklap} />
+</Drawer.Navigator>
+
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen
+        name="Root"
+        component={Root}
+        options={{ headerShown: false }}
+        />  
+        <Stack.Screen
+          name="Kiegeszitok"
+          component={Kiegeszitok}
+        />
+        </Stack.Navigator>
+        </NavigationContainer>
   );
 }

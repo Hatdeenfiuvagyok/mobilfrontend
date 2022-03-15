@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import {View, Image, FlatList, TouchableOpacity, Text, Button,navigation } from 'react-native';
-import Collapsible from 'react-native-collapsible';
 
 const ipcim="192.168.1.67";
 
 
 
-export default class Kiegeszitok extends Component {
+export default class Mell extends Component {
   constructor(props) {
     super(props);
-      this.state = {
-        isLoading:true,
-        isCollapsed:true,
-        dataSource:[],
-        megnyomva:[]
-      };
+    this.state = {
+      isLoading:true,
+      isCollapsed:true,
+      megnyomva:[]
+    };
   }
+
 
   componentDidMount(){
     return fetch('http://'+ipcim+':3000/etrend_tipus')
@@ -26,6 +25,15 @@ export default class Kiegeszitok extends Component {
           isLoading: false,
           dataSource: responseJson,
         }, function(){
+
+          
+          
+let m=this.state.megnyomva;
+for (let elem of this.state.dataSource)
+    m[elem.etrend_id]=true
+this.setState({megnyomva:m})  
+
+
         });
 
       })
@@ -34,15 +42,31 @@ export default class Kiegeszitok extends Component {
       });
   }
 
+  
+  kattintas=(sorszam)=>{
+    //alert(sorszam)
+    let m=this.state.megnyomva
+    m[sorszam]=!m[sorszam]
+    this.setState({megnyomva:m})
+  }
+
   render() {
     return (
-        
+
       <View>
       <FlatList
         data={this.state.dataSource}
         renderItem={({item}) => 
-        
-      <Text>{item.etrend_tipus_nev}</Text>
+         <View>
+      <Text style={{textAlign:'center'}}>{item.etrend_tipus_nev}</Text>
+          
+      <Text style={{padding: 10, fontSize: 20, textAlign:'center'}}>
+          {item.kiegeszitok_nev}
+        </Text><Text style={{padding: 10, fontSize: 16, textAlign:'justify'}}>
+          {item.kiegeszitok_leiras}
+        </Text>
+  
+      </View>
       }
         keyExtractor={({etrend_tipus_id}, index) => etrend_tipus_id}
       />

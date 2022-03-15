@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Text, View, Image, ScrollView } from 'react-native';
 
-const ipcim="172.16.0.111";
+const ipcim="192.168.1.67";
 
 export default class Touchables extends Component {
   constructor(props){

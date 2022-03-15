@@ -15,6 +15,7 @@ import CombFar from './CombFar';
 import Alkar from './Alkar';
 import Megjegyzesek from './Megjegyzesek';
 import Kiegeszitok from './Kiegeszitok';
+import Nevjegy from './Nevjegy';
 
 function Fooldallap({ navigation }) {
   return (
@@ -84,6 +85,12 @@ function Megjegyzeseklap({ navigation }) {
 }
 
 
+function Nevjegylap({ navigation }) {
+  return (
+    <Nevjegy/>
+  );
+}
+
 
 
 const Drawer = createDrawerNavigator();
@@ -98,14 +105,13 @@ function Root({ navigation }) {
   <Drawer.Screen name="Főoldal" component={Fooldallap}
   options={{
     headerRight: () => (
-      <View style={{}}>
+      <View style={{backgroundColor:'red'}}>
   
         <Button
         onPress={() => navigation.navigate('Kiegeszitok')}
         title="Kiegeszitok"
-        color="blue"
-        
-      />
+        color="red"
+        />
       </View>
         
   
@@ -122,6 +128,7 @@ function Root({ navigation }) {
         <Drawer.Screen name="Comb/Far izom" component={CombFarworkout} />
         <Drawer.Screen name="Alkar" component={Alkarworkout} />
         <Drawer.Screen name="Megjegyzések" component={Megjegyzeseklap} />
+        <Drawer.Screen name="Névjegy" component={Nevjegylap} />
 </Drawer.Navigator>
 
   );

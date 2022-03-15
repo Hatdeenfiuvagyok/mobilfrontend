@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text, SafeAreaView, } from 'react-native';
-
+import { ImageBackground, Text } from 'react-native';
 
 export default class Fooldal extends Component {
   constructor(props) {
@@ -16,17 +15,13 @@ export default class Fooldal extends Component {
 
 render() {  
   return (
-      <Text>Főoldal</Text>
-   // <SafeAreaView style={{ flex: 1 }}>
-    //<View>
-     // <View>
-      //  <Button
-       //   onPress={() => navigation.navigate('Kiegeszitok')}
-       //   title="Kiegeszitok"
-       // />
-     // </View>
-   // </View>
- // </SafeAreaView>
-);
-}
+    <ImageBackground source={require("./pexels-anush-gorak-1229356.jpg")}
+    style={{
+      flex: 1,
+      width: null,
+      height: null,}}>
+      
+    </ImageBackground>
+    );
+  }
 }

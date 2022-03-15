@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet,Text, TextInput, View,TouchableOpacity } from 'react-native';
 
-const ipcim="172.16.0.111";
+      //172.16.0.110
+      //192.168.1.67
+      //172.16.0.102
+const ipcim="192.168.1.67";
 
 export default class Bevitel extends Component {
   constructor(props) {
@@ -47,8 +50,8 @@ felvitel=async ()=>{
 
   render() {
     return (
-      <View style = {{}}>
-        <View style={{padding: 10, backgroundColor:'#dddddd'}}>
+      <View style={{}}>
+        <View style={{padding: 10, backgroundColor:'#dddddd',width:'100%', alignSelf:'center', borderWidth:3, borderColor:'black', borderStyle:'solid'}}>
             <Text style={{color:'black'}}>
                 Név:
             </Text>

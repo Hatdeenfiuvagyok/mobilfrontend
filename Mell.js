@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {View, Image, FlatList, TouchableOpacity, Text  } from 'react-native';
 import Collapsible from 'react-native-collapsible';
 
-const ipcim="172.16.0.111";
+const ipcim="192.168.1.67";
 
 export default class Mell extends Component {
   constructor(props) {
@@ -67,7 +67,7 @@ this.setState({megnyomva:m})
         </TouchableOpacity>
 
         <Collapsible collapsed={this.state.megnyomva[item.kepek_id]}>
-      <Text style={{padding: 10, fontSize: 20, textAlign:'justify'}}>
+      <Text style={{padding: 10, fontSize: 12, textAlign:'justify'}}>
           {item.kepek_leiras}
         </Text>
   </Collapsible>

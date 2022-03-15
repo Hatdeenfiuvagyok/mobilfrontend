@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { StyleSheet,Text, TextInput, View,TouchableOpacity, FlatList, RefreshControl  } from 'react-native';
 import Bevitel from './Bevitel';
 
+      //172.16.0.110
+      //192.168.1.67
+      //172.16.0.102
 const ipcim="192.168.1.67";
 
-export default class Komment extends Component {
+export default class Megjegyzesek extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,24 +66,25 @@ export default class Komment extends Component {
   render() {
     return (
 
-        <View>
+        <View style={{margin:10}}>
 
-<Bevitel tema_bevitel={this.state.tema}  frissit={()=>this.ujratoltes()}  />
+        <Bevitel tema_bevitel={this.state.tema}  frissit={()=>this.ujratoltes()}  />
 
         <Text style={{fontSize:30, textAlign:'center', marginTop:25}}>Megjegyzések</Text>
         <FlatList
           data={this.state.dataSource}
           renderItem={({item}) => 
 
-          <View style={{backgroundColor:'lightblue', borderRadius:15, margin:10}}>
+          <View style={{backgroundColor:'rgb(212, 212, 212)',borderBottomLeftRadius:15,borderBottomRightRadius:15,width:'100%',alignSelf:'center', borderColor:'black', borderBottomWidth:2,borderBottomWidth:'100%', borderStyle:'solid', marginBottom:10}}>
 
-          <Text style={{color:"#dd00cc",fontSize:18,marginTop:5, marginLeft:10}}>
+          <Text style={{color:'darkblue',fontSize:18,marginTop:5, marginLeft:10}}>
           {item.uzenet_nev} </Text>
-          <Text style={{color:"black",fontSize:20, marginLeft:10}}>
+          <Text style={{color:"black",fontSize:20,marginLeft:10}}>
           {item.uzenet_szoveg} </Text>
-          <Text style={{color:"black",fontSize:12, marginRight:10, marginBottom:5, textAlign:'right'}}>
+          <Text style={{color:"black",fontSize:12, textAlign:'right',marginRight:10}}>
           {item.uzenet_datum} </Text>
      
+          
    
           </View>
         
@@ -92,19 +96,3 @@ export default class Komment extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-    gombSzoveg:{
-            textAlign:'center',
-            color:'white',
-            marginTop:'auto',
-            marginBottom:'auto',
-            fontSize:16
-    },
-    gomb:{
-            height:25,
-            backgroundColor:'blue',
-            width:'25%',
-            borderRadius:10
-    },
-});

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {View, Image, FlatList, TouchableOpacity, Text } from 'react-native';
 import Collapsible from 'react-native-collapsible';
 
-const ipcim="172.16.0.111";
+const ipcim="192.168.1.67";
 
 export default class Tricepsz extends Component {
   constructor(props) {
@@ -64,12 +64,12 @@ this.setState({megnyomva:m})
         onPress={()=>this.kattintas(item.kepek_id)}
         >
 
-        <Image  source={{uri: 'http://'+ipcim+'/'+item.kepek}} style={{height:300, width:400, marginBottom:20}} />
+        <Image  source={{uri: 'http://'+ipcim+':3000/'+item.kepek}} style={{height:300, width:400, marginBottom:20}} />
           
         </TouchableOpacity>
 
         <Collapsible collapsed={this.state.megnyomva[item.kepek_id]}>
-      <Text style={{padding: 10, fontSize: 42}}>
+      <Text style={{padding: 10, fontSize: 12, textAlign:'justify'}}>
           {item.kepek_leiras}
         </Text>
   </Collapsible>

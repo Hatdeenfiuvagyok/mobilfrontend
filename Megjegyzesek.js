@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet,Text, TextInput, View,TouchableOpacity, FlatList, RefreshControl  } from 'react-native';
 import Bevitel from './Bevitel';
+const IP = require('./ipcim.js');
 
-      //172.16.0.110
-      //192.168.1.67
-      //172.16.0.102
-const ipcim="192.168.1.67";
+//const ipcim="192.168.1.67";
 
 export default class Megjegyzesek extends Component {
   constructor(props) {
@@ -20,7 +18,7 @@ export default class Megjegyzesek extends Component {
   }
   
   componentDidMount(){
-    return fetch('http://'+ipcim+':3000/tema')
+    return fetch('http://'+IP.ipcim+'/tema')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -43,7 +41,7 @@ export default class Megjegyzesek extends Component {
     //alert(szam)
     this.setState({})
 
-    return fetch('http://'+ipcim+':3000/tema')
+    return fetch('http://'+IP.ipcim+'/tema')
       .then((response) => response.json())
       .then((responseJson) => {
 

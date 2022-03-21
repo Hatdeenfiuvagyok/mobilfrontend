@@ -16,6 +16,7 @@ import Alkar from './Alkar';
 import Megjegyzesek from './Megjegyzesek';
 import Kiegeszitok from './Kiegeszitok';
 import Nevjegy from './Nevjegy';
+import Ipcim from './ipcim';
 
 function Fooldallap({ navigation }) {
   return (

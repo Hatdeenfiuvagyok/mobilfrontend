@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet,Text, TextInput, View,TouchableOpacity } from 'react-native';
+const IP = require('./ipcim.js');
 
-      //172.16.0.110
-      //192.168.1.67
-      //172.16.0.102
-const ipcim="192.168.1.67";
+//const ipcim="192.168.1.67";
 
 export default class Bevitel extends Component {
   constructor(props) {
@@ -29,7 +27,7 @@ felvitel=async ()=>{
       bevitel2:this.state.komment
     }
 
-    fetch('http://'+ipcim+':3000/kommentfelvitel',{
+    fetch('http://'+IP.ipcim+'/kommentfelvitel',{
       method: "POST",
       body: JSON.stringify(bemenet),
       headers: {"Content-type": "application/json; charset=UTF-8"}

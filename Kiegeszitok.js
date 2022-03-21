@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import {View, Image, FlatList, TouchableOpacity, Text, Button,navigation } from 'react-native';
+const IP = require('./ipcim.js');
 
-const ipcim="192.168.1.67";
+//const ipcim="192.168.1.67";
 
 
 
-export default class Mell extends Component {
+export default class Kiegeszitok extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +18,7 @@ export default class Mell extends Component {
 
 
   componentDidMount(){
-    return fetch('http://'+ipcim+':3000/etrend_tipus')
+    return fetch('http://'+IP.ipcim+'/etrend_tipus')
       .then((response) => response.json())
       .then((responseJson) => {
 

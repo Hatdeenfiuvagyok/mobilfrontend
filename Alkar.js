@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {View, Image, FlatList, TouchableOpacity, Text } from 'react-native';
 import Collapsible from 'react-native-collapsible';
+const IP = require('./ipcim.js');
 
-const ipcim="192.168.1.67";
+//const ipcim="192.168.1.67";
 
 export default class Alkar extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export default class Alkar extends Component {
   }
 
   componentDidMount(){
-    return fetch('http://'+ipcim+':3000/Alkar')
+    return fetch('http://'+IP.ipcim+'/Alkar')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -59,7 +60,7 @@ this.setState({megnyomva:m})
         onPress={()=>this.kattintas(item.kepek_id)}
         >
 
-        <Image  source={{uri: 'http://'+ipcim+':3000/'+item.kepek}} style={{height:300, width:400, marginBottom:20}} />
+        <Image  source={{uri: 'http://'+IP.ipcim+'/'+item.kepek}} style={{height:300, width:400, marginBottom:20}} />
           
         </TouchableOpacity>
 
